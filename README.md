@@ -462,6 +462,8 @@ sns.catplot(x="fresh", kind="count", data=review)
 CONCLUSIONS
 
 The three key factor I used for analysis show that ROI is important and this is basically determined by production cost against domestic gross and also the language of the movie will influence production and English is the most preferred movie type as it attracts more audience hence mostly watched and lastly publishers and their rating is a key factor as they will assist push for sales and good rating. Top known publisher in the industry plays a key role in pushing for movies sales.
+
+
 RECOMMENDATION
 
 Consider investing in movies with higher production budgets: Since there is a positive correlation between production budget and domestic gross, investing in movies with higher production budgets may be more likely to yield higher returns. However, it's important to keep in mind that higher production budgets also come with higher risks.
