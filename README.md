@@ -336,18 +336,7 @@ top_10_ROI_movies = sorted_df.head(10)
 
 print(top_10_ROI_movies[['movie', 'ROI']])
 
-                                             movie        ROI
-release_date                                                 
-2015-12-18    Star Wars Ep. VII: The Force Awakens  630662225
-2018-02-16                           Black Panther  500059566
-2015-06-12                          Jurassic World  437270625
-2018-06-15                           Incredibles 2  408581744
-2018-04-27                  Avengers: Infinity War  378815482
-2017-03-17                    Beauty and the Beast  344014165
-2016-12-16            Rogue One: A Star Wars Story  332177324
-2017-12-20          Jumanji: Welcome to the Jungle  314508916
-2016-02-12                                Deadpool  305070709
-2017-12-15       Star Wars Ep. VIII: The Last Jedi  303181382
+
 
 # Create a bar plot of the top 10 movies by ROI
 
@@ -379,21 +368,6 @@ review
 
 ​
 
-	id 	review 	rating 	fresh 	critic 	top_critic 	publisher 	date
-0 	3 	A distinctly gallows take on contemporary fina... 	3/5 	fresh 	PJ Nabarro 	0 	Patrick Nabarro 	November 10, 2018
-1 	3 	It's an allegory in search of a meaning that n... 	NaN 	rotten 	Annalee Newitz 	0 	io9.com 	May 23, 2018
-2 	3 	... life lived in a bubble in financial dealin... 	NaN 	fresh 	Sean Axmaker 	0 	Stream on Demand 	January 4, 2018
-3 	3 	Continuing along a line introduced in last yea... 	NaN 	fresh 	Daniel Kasman 	0 	MUBI 	November 16, 2017
-4 	3 	... a perverse twist on neorealism... 	NaN 	fresh 	NaN 	0 	Cinema Scope 	October 12, 2017
-... 	... 	... 	... 	... 	... 	... 	... 	...
-54427 	2000 	The real charm of this trifle is the deadpan c... 	NaN 	fresh 	Laura Sinagra 	1 	Village Voice 	September 24, 2002
-54428 	2000 	NaN 	1/5 	rotten 	Michael Szymanski 	0 	Zap2it.com 	September 21, 2005
-54429 	2000 	NaN 	2/5 	rotten 	Emanuel Levy 	0 	EmanuelLevy.Com 	July 17, 2005
-54430 	2000 	NaN 	2.5/5 	rotten 	Christopher Null 	0 	Filmcritic.com 	September 7, 2003
-54431 	2000 	NaN 	3/5 	fresh 	Nicolas Lacroix 	0 	Showbizz.net 	November 12, 2002
-
-54432 rows × 8 columns
-
 review['publisher'].unique()
 
 array(['Patrick Nabarro', 'io9.com', 'Stream on Demand', ...,
@@ -401,30 +375,6 @@ array(['Patrick Nabarro', 'io9.com', 'Stream on Demand', ...,
 
 review['rating'].unique()
 
-array(['3/5', nan, 'C', '2/5', 'B-', '2/4', 'B', '3/4', '4/5', '4/4',
-       '6/10', '1/4', '8', '2.5/4', '4/10', '2.0/5', '3/10', '7/10', 'A-',
-       '5/5', 'F', '3.5/4', 'D+', '1.5/4', '3.5/5', '8/10', 'B+', '9/10',
-       '2.5/5', '7.5/10', '5.5/10', 'C-', '1.5/5', '1/5', '5/10', 'C+',
-       '0/5', '6', '0.5/4', 'D', '3.1/5', '3/6', '4.5/5', '0/4', '2/10',
-       'D-', '7', '1/10', '3', 'A+', 'A', '4.0/4', '9.5/10', '2.5',
-       '2.1/2', '6.5/10', '3.7/5', '8.4/10', '9', '1', '7.2/10', '2.2/5',
-       '0.5/10', '5', '0', '2', '4.5', '7.7', '5.0/5', '8.5/10', '3.0/5',
-       '0.5/5', '1.5/10', '3.0/4', '2.3/10', '4.5/10', '4/6', '3.5',
-       '8.6/10', '6/8', '2.0/4', '2.7', '4.2/10', '5.8', '4', '7.1/10',
-       '5/4', 'N', '3.5/10', '5.8/10', 'R', '4.0/5', '0/10', '5.0/10',
-       '5.9/10', '2.4/5', '1.9/5', '4.9', '7.4/10', '1.5', '2.3/4',
-       '8.8/10', '4.0/10', '2.2', '3.8/10', '6.8/10', '7.3', '7.0/10',
-       '3.2', '4.2', '8.4', '5.5/5', '6.3/10', '7.6/10', '8.1/10',
-       '3.6/5', '2/6', '7.7/10', '1.8', '8.9/10', '8.9', '8.2/10',
-       '8.3/10', '2.6/6', '4.1/10', '2.5/10', 'F+', '6.0/10', '1.0/4',
-       '7.9/10', '8.7/10', '4.3/10', '9.6/10', '9.0/10', '4.0', '1.7',
-       '7.9', '6.7', '8.0/10', '9.2/10', '5.2', '5.9', '3.7', '4.7',
-       '6.2/10', '1/6', '8.2', '2.6/5', '3.4', '9.7', '3.3/5', '3.8/5',
-       '1/2', '7.4', '4.8', '1.6/5', '2/2', '1-5', '1.0', '4.3/5', '5/6',
-       '9.2', '2.7/5', '4.9/10', '3.0', '3.1', '7.8/10', 'F-', '2.3/5',
-       '3.0/10', '3/2', '7.8', '4.2/5', '9.0', '7.3/10', '4.4/5',
-       '6.9/10', '0/6', 'T', '6.2', '3.3', '9.8', '8.5', '1.0/5', '4.1',
-       '7.1', '3 1/2'], dtype=object)
 
 #The ratings appear to be in different formats
 
@@ -481,19 +431,6 @@ def convert_rating(rating):
 review['numeric_rating'] = review['rating'].apply(convert_rating)
 
 review
-
-	id 	review 	rating 	fresh 	critic 	top_critic 	publisher 	date 	numeric_rating
-0 	3 	A distinctly gallows take on contemporary fina... 	3/5 	fresh 	PJ Nabarro 	0 	Patrick Nabarro 	November 10, 2018 	6.0
-1 	3 	It's an allegory in search of a meaning that n... 	NaN 	rotten 	Annalee Newitz 	0 	io9.com 	May 23, 2018 	NaN
-2 	3 	... life lived in a bubble in financial dealin... 	NaN 	fresh 	Sean Axmaker 	0 	Stream on Demand 	January 4, 2018 	NaN
-3 	3 	Continuing along a line introduced in last yea... 	NaN 	fresh 	Daniel Kasman 	0 	MUBI 	November 16, 2017 	NaN
-4 	3 	... a perverse twist on neorealism... 	NaN 	fresh 	NaN 	0 	Cinema Scope 	October 12, 2017 	NaN
-... 	... 	... 	... 	... 	... 	... 	... 	... 	...
-54427 	2000 	The real charm of this trifle is the deadpan c... 	NaN 	fresh 	Laura Sinagra 	1 	Village Voice 	September 24, 2002 	NaN
-54428 	2000 	NaN 	1/5 	rotten 	Michael Szymanski 	0 	Zap2it.com 	September 21, 2005 	2.0
-54429 	2000 	NaN 	2/5 	rotten 	Emanuel Levy 	0 	EmanuelLevy.Com 	July 17, 2005 	4.0
-54430 	2000 	NaN 	2.5/5 	rotten 	Christopher Null 	0 	Filmcritic.com 	September 7, 2003 	NaN
-54431 	2000 	NaN 	3/5 	fresh 	Nicolas Lacroix 	0 	Showbizz.net 	November 12, 2002 	6.0
 
 54432 rows × 9 columns
 
