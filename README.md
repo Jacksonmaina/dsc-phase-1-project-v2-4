@@ -1,5 +1,5 @@
 
-![studios](https://user-images.githubusercontent.com/127976694/232330331-4caa1624-0256-48ee-8301-fc68e74ba5e0.jpg)
+
 
 OVERVIEW
 
