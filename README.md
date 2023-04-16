@@ -51,96 +51,44 @@ movies =pd.read_csv('tmdb.movies.csv.gz',index_col = 0)
 movies
 
 
-	genre_ids 	id 	original_language 	original_title 	popularity 	release_date 	title 	vote_average 	vote_count
-0 	[12, 14, 10751] 	12444 	en 	Harry Potter and the Deathly Hallows: Part 1 	33.533 	2010-11-19 	Harry Potter and the Deathly Hallows: Part 1 	7.7 	10788
-1 	[14, 12, 16, 10751] 	10191 	en 	How to Train Your Dragon 	28.734 	2010-03-26 	How to Train Your Dragon 	7.7 	7610
-2 	[12, 28, 878] 	10138 	en 	Iron Man 2 	28.515 	2010-05-07 	Iron Man 2 	6.8 	12368
-3 	[16, 35, 10751] 	862 	en 	Toy Story 	28.005 	1995-11-22 	Toy Story 	7.9 	10174
-4 	[28, 878, 12] 	27205 	en 	Inception 	27.920 	2010-07-16 	Inception 	8.3 	22186
-... 	... 	... 	... 	... 	... 	... 	... 	... 	...
-26512 	[27, 18] 	488143 	en 	Laboratory Conditions 	0.600 	2018-10-13 	Laboratory Conditions 	0.0 	1
-26513 	[18, 53] 	485975 	en 	_EXHIBIT_84xxx_ 	0.600 	2018-05-01 	_EXHIBIT_84xxx_ 	0.0 	1
-26514 	[14, 28, 12] 	381231 	en 	The Last One 	0.600 	2018-10-01 	The Last One 	0.0 	1
-26515 	[10751, 12, 28] 	366854 	en 	Trailer Made 	0.600 	2018-06-22 	Trailer Made 	0.0 	1
-26516 	[53, 27] 	309885 	en 	The Church 	0.600 	2018-10-05 	The Church 	0.0 	1
-
-26517 rows × 9 columns
-
 #having gotten the data,an overview of the columns shows the following (genre id,id,original language,original title,popularity,release date,title,vote average and vote count).I will clean the above data and get to get more insight on the original language and views based on the production language.
 
 #get to understanding datatype i will be using
 
+
 movies.info()
 
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 26517 entries, 0 to 26516
-Data columns (total 9 columns):
- #   Column             Non-Null Count  Dtype  
----  ------             --------------  -----  
- 0   genre_ids          26517 non-null  object 
- 1   id                 26517 non-null  int64  
- 2   original_language  26517 non-null  object 
- 3   original_title     26517 non-null  object 
- 4   popularity         26517 non-null  float64
- 5   release_date       26517 non-null  object 
- 6   title              26517 non-null  object 
- 7   vote_average       26517 non-null  float64
- 8   vote_count         26517 non-null  int64  
-dtypes: float64(2), int64(2), object(5)
-memory usage: 2.0+ MB
 
 #get to see statistical ananlysis of the data
 
 movies.describe()
 
-	id 	popularity 	vote_average 	vote_count
-count 	26517.000000 	26517.000000 	26517.000000 	26517.000000
-mean 	295050.153260 	3.130912 	5.991281 	194.224837
-std 	153661.615648 	4.355229 	1.852946 	960.961095
-min 	27.000000 	0.600000 	0.000000 	1.000000
-25% 	157851.000000 	0.600000 	5.000000 	2.000000
-50% 	309581.000000 	1.374000 	6.000000 	5.000000
-75% 	419542.000000 	3.694000 	7.000000 	28.000000
-max 	608444.000000 	80.773000 	10.000000 	22186.000000
 
 #get to see if there is null values in the data
 
+
 movies.isnull().sum()
 
-genre_ids            0
-id                   0
-original_language    0
-original_title       0
-popularity           0
-release_date         0
-title                0
-vote_average         0
-vote_count           0
-dtype: int64
+
 
 #get to see the key values in the dataset
 
+
 movies.keys()
 
-Index(['genre_ids', 'id', 'original_language', 'original_title', 'popularity',
-       'release_date', 'title', 'vote_average', 'vote_count'],
-      dtype='object')
 
 #get to create an histogram for the vote count column to have an insight of how it is distributed
 
 movies['vote_count'].hist()
 
-<AxesSubplot:>
+
 
 #get to get in the vote count column those above 20000
 
 movies[movies['vote_count']>20000]
 
-	genre_ids 	id 	original_language 	original_title 	popularity 	release_date 	title 	vote_average 	vote_count
-4 	[28, 878, 12] 	27205 	en 	Inception 	27.920 	2010-07-16 	Inception 	8.3 	22186
-17383 	[28, 12, 35] 	293660 	en 	Deadpool 	35.067 	2016-02-12 	Deadpool 	7.6 	20175
 
-#above shows the two movies that had a value_count of more than 20000
+
 
 #the correlation btw vote_average and vote_count is weak positive correlation
 
@@ -148,32 +96,21 @@ movies_corr =movies[['vote_average', 'vote_count']].corr()
 
 movies_corr
 
+
 	vote_average 	vote_count
 vote_average 	1.00000 	0.08637
 vote_count 	0.08637 	1.00000
 
-# the seaborn graph assist to clearly show the correlation of the two and as per the graph its a weak as it is below 0.2
+#The seaborn graph assist to clearly show the correlation of the two and as per the graph its a weak as it is below 0.2
 
 sns.heatmap(movies_corr, cmap ='coolwarm', annot =True)
 
-<AxesSubplot:>
 
 #another insight is the relation of the movies and the languages used and mostly the audience prefer english as shown below
 
 movies['original_language'].value_counts()
 
-en    23291
-fr      507
-es      455
-ru      298
-ja      265
-      ...  
-bo        1
-si        1
-sl        1
-hz        1
-dz        1
-Name: original_language, Length: 76, dtype: int64
+
 
 #the correlation btw vote_average and popularity is weak positive correlation
 
@@ -187,9 +124,7 @@ vote_average 	0.065273 	1.000000
 
 #create a scatterplot for the vote average and popularity 
 
-movies.plot.scatter(x ='vote_average',y= 'popularity', alpha= .1)
 
-<AxesSubplot:xlabel='vote_average', ylabel='popularity'>
 
 2.Analyse the TN dataset to get more insight on ROI
 
@@ -197,48 +132,18 @@ movies.plot.scatter(x ='vote_average',y= 'popularity', alpha= .1)
 
 movie_budgets =pd.read_csv('tn.movie_budgets.csv.gz')
 
-movie_budgets
 
-	id 	release_date 	movie 	production_budget 	domestic_gross 	worldwide_gross
-0 	1 	Dec 18, 2009 	Avatar 	$425,000,000 	$760,507,625 	$2,776,345,279
-1 	2 	May 20, 2011 	Pirates of the Caribbean: On Stranger Tides 	$410,600,000 	$241,063,875 	$1,045,663,875
-2 	3 	Jun 7, 2019 	Dark Phoenix 	$350,000,000 	$42,762,350 	$149,762,350
-3 	4 	May 1, 2015 	Avengers: Age of Ultron 	$330,600,000 	$459,005,868 	$1,403,013,963
-4 	5 	Dec 15, 2017 	Star Wars Ep. VIII: The Last Jedi 	$317,000,000 	$620,181,382 	$1,316,721,747
-... 	... 	... 	... 	... 	... 	...
-5777 	78 	Dec 31, 2018 	Red 11 	$7,000 	$0 	$0
-5778 	79 	Apr 2, 1999 	Following 	$6,000 	$48,482 	$240,495
-5779 	80 	Jul 13, 2005 	Return to the Land of Wonders 	$5,000 	$1,338 	$1,338
-5780 	81 	Sep 29, 2015 	A Plague So Pleasant 	$1,400 	$0 	$0
-5781 	82 	Aug 5, 2005 	My Date With Drew 	$1,100 	$181,041 	$181,041
-
-5782 rows × 6 columns
 
 #get to see the statistical analyses of the data like mean 
 
 movie_budgets.describe()
 
-	id
-count 	5782.000000
-mean 	50.372363
-std 	28.821076
-min 	1.000000
-25% 	25.000000
-50% 	50.000000
-75% 	75.000000
-max 	100.000000
 
 #get to see datatype 
 
 movie_budgets.dtypes
 
-id                    int64
-release_date         object
-movie                object
-production_budget    object
-domestic_gross       object
-worldwide_gross      object
-dtype: object
+
 
 #get to see if the data has null values
 
@@ -268,20 +173,6 @@ movie_budgets
 
 ​
 
-	id 	release_date 	movie 	production_budget 	domestic_gross 	worldwide_gross
-0 	1 	Dec 18, 2009 	Avatar 	425000000 	760507625 	2776345279
-1 	2 	May 20, 2011 	Pirates of the Caribbean: On Stranger Tides 	410600000 	241063875 	1045663875
-2 	3 	Jun 7, 2019 	Dark Phoenix 	350000000 	42762350 	149762350
-3 	4 	May 1, 2015 	Avengers: Age of Ultron 	330600000 	459005868 	1403013963
-4 	5 	Dec 15, 2017 	Star Wars Ep. VIII: The Last Jedi 	317000000 	620181382 	1316721747
-... 	... 	... 	... 	... 	... 	...
-5777 	78 	Dec 31, 2018 	Red 11 	7000 	0 	0
-5778 	79 	Apr 2, 1999 	Following 	6000 	48482 	240495
-5779 	80 	Jul 13, 2005 	Return to the Land of Wonders 	5000 	1338 	1338
-5780 	81 	Sep 29, 2015 	A Plague So Pleasant 	1400 	0 	0
-5781 	82 	Aug 5, 2005 	My Date With Drew 	1100 	181041 	181041
-
-5782 rows × 6 columns
 
 #get to calculate the ROI by substracting production budget from the domestic gross
 
@@ -291,20 +182,6 @@ movie_budgets['ROI'] = movie_budgets['domestic_gross'] - movie_budgets['producti
 
 movie_budgets
 
-	id 	release_date 	movie 	production_budget 	domestic_gross 	worldwide_gross 	ROI
-0 	1 	Dec 18, 2009 	Avatar 	425000000 	760507625 	2776345279 	335507625
-1 	2 	May 20, 2011 	Pirates of the Caribbean: On Stranger Tides 	410600000 	241063875 	1045663875 	-169536125
-2 	3 	Jun 7, 2019 	Dark Phoenix 	350000000 	42762350 	149762350 	-307237650
-3 	4 	May 1, 2015 	Avengers: Age of Ultron 	330600000 	459005868 	1403013963 	128405868
-4 	5 	Dec 15, 2017 	Star Wars Ep. VIII: The Last Jedi 	317000000 	620181382 	1316721747 	303181382
-... 	... 	... 	... 	... 	... 	... 	...
-5777 	78 	Dec 31, 2018 	Red 11 	7000 	0 	0 	-7000
-5778 	79 	Apr 2, 1999 	Following 	6000 	48482 	240495 	42482
-5779 	80 	Jul 13, 2005 	Return to the Land of Wonders 	5000 	1338 	1338 	-3662
-5780 	81 	Sep 29, 2015 	A Plague So Pleasant 	1400 	0 	0 	-1400
-5781 	82 	Aug 5, 2005 	My Date With Drew 	1100 	181041 	181041 	179941
-
-5782 rows × 7 columns
 
 #create a scatterplot 
 
@@ -312,7 +189,7 @@ sns.scatterplot(data=movie_budgets,x='production_budget', y='domestic_gross')
 
 plt.title('production_budget vs domestic_gross')
 
-Text(0.5, 1.0, 'production_budget vs domestic_gross')
+
 
 # Compute the correlation matrix
 
