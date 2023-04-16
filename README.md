@@ -21,22 +21,35 @@ The potential problem that microsoft has is basically to determine if they shoul
 import pandas as pd
 
 import sqlite3
+
 import csv
+
 import numpy as np
+
 import seaborn as sns
+
 import matplotlib.pyplot as plt
+
 %matplotlib inline
+
 #Ignore warnings
+
 import warnings
+
 warnings.filterwarnings('ignore')
 
-. Get to answer original language influence on the movie views
+1.Get to answer original language influence on the movie views
+
 
 #import TMDB movie dataset
 
+
+
 movies =pd.read_csv('tmdb.movies.csv.gz',index_col = 0)
 
+
 movies
+
 
 	genre_ids 	id 	original_language 	original_title 	popularity 	release_date 	title 	vote_average 	vote_count
 0 	[12, 14, 10751] 	12444 	en 	Harry Potter and the Deathly Hallows: Part 1 	33.533 	2010-11-19 	Harry Potter and the Deathly Hallows: Part 1 	7.7 	10788
