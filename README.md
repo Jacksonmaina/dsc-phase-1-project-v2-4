@@ -4,9 +4,13 @@
 OVERVIEW
 
 With sudden increase in original film production in mega companies, Microsoft wants to get an in-depth understanding of the movie industries to help her determine if it’s a business they can venture. I used the return on investment as a measure to gauge the profitability of particular movies, looked into most popular publisher and rating and also used production budget against domestic gross to help determine the correction of the two output and also how production budget influence movie output in term of sales.
+
+
 BUSINESS PROBLEM
 
 The potential problem that microsoft has is basically to determine if they should venture into the movie industry and just get to basically understand the key determiners of the market that influence good outcome in term of sale and basically helping them understand the success of a movie is basically determine by not only common factor like gross income but things also like the publisher so Microsoft has to position itself well to beat key players like Amazon and Netflix. I used these key analysis to help them understand the problem 1.Original language 2.ROI and Production Budget 3.Publishers and Rating It's important for Microsoft to carefully consider both the ROI potential and the publishers they work with in order to make informed decisions about their venture into original movie content.
+
+
 DATA UNDERSTANDING
 
 The potential problem that microsoft has is basically to determine if they should venture into the movie industry and just get to basically understand the key determiners of the market that influence good outcome in term of sale and success of a movie is basically determine by not only common factor like gross income but things also like the publisher so Microsoft has to position itself well to beat key players like Amazon and Netflix.I used below key analysis to help them understand the problem 1.Return On Investement(ROI) i will get this analyses from the movie budget dataset 2.Production Budget 3.Publishers and Ratings It's important for Microsoft to carefully consider both the ROI potential and the publishers they work with in order to make informed decisions about their venture into original movie content.
