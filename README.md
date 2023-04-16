@@ -272,18 +272,6 @@ top_10_ROI_movies = sorted_movie.head(10)
 
 print(top_10_ROI_movies[['movie', 'ROI']])
 
-                                     movie        ROI
-5     Star Wars Ep. VII: The Force Awakens  630662225
-41                           Black Panther  500059566
-42                                 Titanic  459363944
-3464          Star Wars Ep. IV: A New Hope  449998007
-33                          Jurassic World  437270625
-3525             ET: The Extra-Terrestrial  424610554
-43                           Incredibles 2  408581744
-26                            The Avengers  398279547
-6                   Avengers: Infinity War  378815482
-692                                Shrek 2  371226247
-
 # Create a horizontal bar chart of the top 10 movies with the highest ROI
 
 sns.set_style('whitegrid')
